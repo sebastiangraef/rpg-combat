@@ -1,0 +1,22 @@
+{
+  "name": "rpg-combat",
+  "version": "0.1",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "debug": "jest --inspect",
+    "watch": "jest --watch"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0"
+  }
+}
