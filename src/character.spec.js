@@ -5,7 +5,7 @@ const STARTING_LEVEL = 1;
 
 test("should create a new Character with starting health", () => {
   const character = new Character();
-  expect(character.health).toBe(STARTING_HEALTH);
+  expect(character.getHealth()).toBe(STARTING_HEALTH);
 });
 
 test("should create a new Character with starting level", () => {
@@ -19,7 +19,7 @@ test("should be able to deal damage", () => {
 
   character.damage(enemyCharacter, 1);
 
-  expect(enemyCharacter.health).toBe(999);
+  expect(enemyCharacter.getHealth()).toBe(999);
 });
 
 test("should be able to die", () => {
@@ -28,7 +28,7 @@ test("should be able to die", () => {
 
   character.damage(enemyCharacter, 555555);
 
-  expect(enemyCharacter.health).toBe(0);
+  expect(enemyCharacter.getHealth()).toBe(0);
 });
 
 test("should be able to heal when not dead", () => {
@@ -37,7 +37,7 @@ test("should be able to heal when not dead", () => {
 
   character.heal();
 
-  expect(character.health).toBe(STARTING_HEALTH);
+  expect(character.getHealth()).toBe(STARTING_HEALTH);
 });
 
 test("should not be able to heal when dead", () => {
@@ -46,5 +46,5 @@ test("should not be able to heal when dead", () => {
 
   character.heal();
 
-  expect(character.health).toBe(0);
+  expect(character.getHealth()).toBe(0);
 });
