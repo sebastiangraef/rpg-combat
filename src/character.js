@@ -1,3 +1,5 @@
+import { calculateDamage } from "./helpers";
+
 class Character {
   static STARTING_HEALTH = 1000;
   static STARTING_LEVEL = 1;
@@ -16,8 +18,10 @@ class Character {
   }
 
   damage(target, damage) {
+    const damageToDeal = calculateDamage(damage);
+
     if (target !== this) {
-      target.receiveDamage(damage);
+      target.receiveDamage(damageToDeal);
     }
   }
 
