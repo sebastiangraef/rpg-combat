@@ -1,11 +1,28 @@
 class Character {
+  static STARTING_HEALTH = 1000;
+  static STARTING_LEVEL = 1;
+
   constructor() {
-    this.health = 1000;
-    this.level = 1;
+    this.health = Character.STARTING_HEALTH;
+    this.level = Character.STARTING_LEVEL;
   }
 
-  damage(target) {
-    target.health = target.health - 1;
+  damage(target, damage) {
+    target.receiveDamage(damage);
+  }
+
+  receiveDamage(damage) {
+    if (damage > this.health) {
+      this.health = 0;
+    } else {
+      this.health -= damage;
+    }
+  }
+
+  heal() {
+    if (this.health > 0) {
+      this.health = Character.STARTING_HEALTH;
+    }
   }
 }
 
