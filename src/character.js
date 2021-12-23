@@ -4,7 +4,7 @@ class Character {
   static STARTING_HEALTH = 1000;
   static STARTING_LEVEL = 1;
 
-  constructor(health, level) {
+  constructor({ health, level } = {}) {
     this.health = health || Character.STARTING_HEALTH;
     this.level = level || Character.STARTING_LEVEL;
   }
@@ -18,7 +18,7 @@ class Character {
   }
 
   damage(target, damage) {
-    const damageToDeal = calculateDamage(damage);
+    const damageToDeal = calculateDamage(damage, this, target);
 
     if (target !== this) {
       target.receiveDamage(damageToDeal);
