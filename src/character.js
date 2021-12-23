@@ -4,9 +4,12 @@ class Character {
   static STARTING_HEALTH = 1000;
   static STARTING_LEVEL = 1;
 
-  constructor({ health, level } = {}) {
-    this.health = health || Character.STARTING_HEALTH;
-    this.level = level || Character.STARTING_LEVEL;
+  constructor({
+    health = Character.STARTING_HEALTH,
+    level = Character.STARTING_LEVEL,
+  } = {}) {
+    this.health = health;
+    this.level = level;
   }
 
   getHealth() {

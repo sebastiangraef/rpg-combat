@@ -40,8 +40,9 @@ test("should be able to die", () => {
 });
 
 test("should be able to heal when not dead", () => {
-  const character = new Character();
-  character.health = 999;
+  const character = new Character({
+    health: 999,
+  });
 
   character.heal();
 
@@ -49,8 +50,9 @@ test("should be able to heal when not dead", () => {
 });
 
 test("should not be able to heal when dead", () => {
-  const character = new Character();
-  character.health = 0;
+  const character = new Character({
+    health: 0,
+  });
 
   character.heal();
 
