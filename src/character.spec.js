@@ -13,13 +13,21 @@ test("should create a new Character with starting level", () => {
   expect(character.level).toBe(STARTING_LEVEL);
 });
 
-test("should be able to deal damage", () => {
+test("should be able to deal damage to others", () => {
   const character = new Character();
   const enemyCharacter = new Character();
 
   character.damage(enemyCharacter, 1);
 
   expect(enemyCharacter.getHealth()).toBe(999);
+});
+
+test("should not be able to deal damage to himself", () => {
+  const character = new Character();
+
+  character.damage(character, 555555);
+
+  expect(character.getHealth()).toBe(1000);
 });
 
 test("should be able to die", () => {

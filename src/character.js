@@ -2,17 +2,23 @@ class Character {
   static STARTING_HEALTH = 1000;
   static STARTING_LEVEL = 1;
 
-  constructor() {
-    this.health = Character.STARTING_HEALTH;
-    this.level = Character.STARTING_LEVEL;
+  constructor(health, level) {
+    this.health = health || Character.STARTING_HEALTH;
+    this.level = level || Character.STARTING_LEVEL;
   }
 
   getHealth() {
     return this.health;
   }
 
+  getLevel() {
+    return this.level;
+  }
+
   damage(target, damage) {
-    target.receiveDamage(damage);
+    if (target !== this) {
+      target.receiveDamage(damage);
+    }
   }
 
   receiveDamage(damage) {
